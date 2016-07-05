@@ -39,7 +39,7 @@ var paths = {
         './bower_components/marked/marked.min.js',
         './bower_components/flexboxgrid/css/flexboxgrid.css',
         './bower_components/font-awesome/css/font-awesome.min.css',
-        
+
         './react/js/node-bundle.js',
         './react/js/Utils.js',
         './react/js/ConnectionHelper.js',
@@ -110,7 +110,6 @@ gulp.task('environment', ['clean'], function () {
     var configFile = 'config/env_' + utils.getEnvName() + '.json';
     projectDir.copy(configFile, destDir.path('env.json'));
 });
-
 
 gulp.task('package-json', ['clean'], function () {
     var manifest = srcDir.read('package.json', 'json');

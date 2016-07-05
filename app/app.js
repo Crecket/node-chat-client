@@ -1,13 +1,30 @@
 // Here is the starting point for your application code.
 // All stuff below is just to show you how it works. You can delete all of it.
 
+/** === react stuffs === */
+import React from 'react';
+import ReactDOM  from 'react-dom';
+import injectTapEventPlugin  from 'react-tap-event-plugin';
+// main app
+import Main from './react/src/app/Main.jsx';
+
+// injection, required for materialze tap events
+injectTapEventPlugin();
+
+// render the react app
+ReactDOM.render(
+    <Main />,
+    document.getElementById('app')
+);
+info('Mounted react succesfully');
+/** === end react stuffs === */
+
 // Use new ES6 modules syntax for everything.
 import os from 'os'; // native node.js module
 import {remote} from 'electron'; // native electron module
 import jetpack from 'fs-jetpack'; // module loaded from npm
 import {greet} from './hello_world/hello_world'; // code authored by you in this project
 import env from './env';
-import react_app from './react/build/react-app.js';
 
 console.log('Loaded environment variables:', env);
 
