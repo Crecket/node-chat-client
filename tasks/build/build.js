@@ -39,13 +39,7 @@ var paths = {
         './bower_components/marked/marked.min.js',
         './bower_components/flexboxgrid/css/flexboxgrid.css',
         './bower_components/font-awesome/css/font-awesome.min.css',
-
-        './react/js/node-bundle.js',
-        './react/js/Utils.js',
-        './react/js/ConnectionHelper.js',
-        './react/js/CryptoHelper.js',
-        './react/js/Client.js',
-
+        
         // default
         // './node_modules/**',
         './helpers/**',

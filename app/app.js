@@ -5,8 +5,13 @@
 import React from 'react';
 import ReactDOM  from 'react-dom';
 import injectTapEventPlugin  from 'react-tap-event-plugin';
-// main app
 import Main from './react/src/app/Main.jsx';
+
+require('./react/js/node-bundle.js');
+require('./react/js/Utils.js');
+require('./react/js/ConnectionHelper.js');
+require('./react/js/CryptoHelper.js');
+require('./react/js/Client.js');
 
 // injection, required for materialze tap events
 injectTapEventPlugin();
