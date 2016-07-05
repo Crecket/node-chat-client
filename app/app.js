@@ -1,17 +1,8 @@
-// Here is the starting point for your application code.
-// All stuff below is just to show you how it works. You can delete all of it.
-
 /** === react stuffs === */
 import React from 'react';
 import ReactDOM  from 'react-dom';
 import injectTapEventPlugin  from 'react-tap-event-plugin';
 import Main from './react/src/app/Main.jsx';
-
-require('./react/js/node-bundle.js');
-require('./react/js/Utils.js');
-require('./react/js/ConnectionHelper.js');
-require('./react/js/CryptoHelper.js');
-require('./react/js/Client.js');
 
 // injection, required for materialze tap events
 injectTapEventPlugin();
@@ -40,8 +31,8 @@ var appDir = jetpack.cwd(app.getAppPath());
 // here files like it is node.js! Welcome to Electron world :)
 console.log('The author of this app is:', appDir.read('package.json', 'json').author);
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('greet').innerHTML = greet();
-    document.getElementById('platform-info').innerHTML = os.platform();
-    document.getElementById('env-name').innerHTML = env.name;
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     document.getElementById('greet').innerHTML = greet();
+//     document.getElementById('platform-info').innerHTML = os.platform();
+//     document.getElementById('env-name').innerHTML = env.name;
+// });

@@ -19,14 +19,40 @@
     <script src="helpers/context_menu.js"></script>
     <script src="helpers/external_links.js"></script>
 
+    <!-- CSS -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
-    <link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+    <link src="bower_components/flexboxgrid/css/flexboxgrid.css" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
+<!-- React application target -->
 <div id="app"></div>
 
+<!-- Libraries -->
+<script src="node_modules/socket.io-client/socket.io.js"></script>
+<script src="node_modules/socket.io-client/socket.io.js"></script>
+<script src="bower_components/sjcl/sjcl.js"></script>
+<script src="bower_components/cryptojslib/components/core.js"></script>
+<script src="bower_components/cryptojslib/components/hmac.js"></script>
+<script src="bower_components/cryptojslib/components/md5.js"></script>
+<script src="bower_components/cryptojslib/components/sha1.js"></script>
+<script src="bower_components/cryptojslib/components/sha256.js"></script>
+<script src="bower_components/cryptojslib/rollups/aes.js"></script>
+<script src="bower_components/cryptojslib/rollups/sha512.js"></script>
+<script src="bower_components/cryptojslib/components/enc-base64.js"></script>
+<script src="bower_components/cryptojslib/components/enc-base64.js"></script>
+<script src="bower_components/react/react-with-addons.js"></script>
+<script src="bower_components/react/react-dom.js"></script>
+<script src="bower_components/marked/marked.min.js"></script>
+<script src="react/src/js/node-bundle.js"></script>
+
+<!-- Custom scripts -->
+<script src="react/src/js/Utils.js"></script>
+<script src="react/src/js/CryptoHelper.js"></script>
+<script src="react/src/js/ConnectionHelper.js"></script>
+<script src="react/src/js/Client.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

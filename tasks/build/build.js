@@ -21,9 +21,6 @@ var paths = {
     copyFromAppDir: [
         // react stuff
         './node_modules/socket.io-client/socket.io.js',
-        './bower_components/jquery/dist/jquery.min.js',
-        './bower_components/bootstrap/dist/js/bootstrap.min.js',
-        './bower_components/socket.io-client/socket.io.js',
         './bower_components/sjcl/sjcl.js',
         './bower_components/cryptojslib/components/core.js',
         './bower_components/cryptojslib/components/hmac.js',
@@ -38,12 +35,12 @@ var paths = {
         './bower_components/react/react-dom.js',
         './bower_components/marked/marked.min.js',
         './bower_components/flexboxgrid/css/flexboxgrid.css',
-        './bower_components/font-awesome/css/font-awesome.min.css',
-        
+        './react/src/js/**',
+
         // default
         // './node_modules/**',
         './helpers/**',
-        './**/*.html',
+        './app.html',
         './**/*.+(jpg|png|svg)'
     ],
 };
@@ -58,10 +55,14 @@ gulp.task('clean', function () {
 
 
 var copyTask = function () {
-    return projectDir.copyAsync('app', destDir.path(), {
-        overwrite: true,
-        matching: paths.copyFromAppDir
-    });
+    return projectDir.copyAsync(
+        'app',
+        destDir.path(),
+        {
+            overwrite: true,
+            matching: paths.copyFromAppDir
+        }
+    );
 };
 gulp.task('copy', ['clean'], copyTask);
 gulp.task('copy-watch', copyTask);
