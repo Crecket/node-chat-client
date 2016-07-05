@@ -19,7 +19,35 @@ var destDir = projectDir.cwd('./build');
 
 var paths = {
     copyFromAppDir: [
-        './node_modules/**',
+        // react stuff
+        './node_modules/socket.io-client/socket.io.js',
+        './bower_components/jquery/dist/jquery.min.js',
+        './bower_components/bootstrap/dist/js/bootstrap.min.js',
+        './bower_components/socket.io-client/socket.io.js',
+        './bower_components/sjcl/sjcl.js',
+        './bower_components/cryptojslib/components/core.js',
+        './bower_components/cryptojslib/components/hmac.js',
+        './bower_components/cryptojslib/components/md5.js',
+        './bower_components/cryptojslib/components/sha1.js',
+        './bower_components/cryptojslib/components/sha256.js',
+        './bower_components/cryptojslib/rollups/aes.js',
+        './bower_components/cryptojslib/rollups/sha512.js',
+        './bower_components/cryptojslib/components/enc-base64.js',
+        './bower_components/cryptojslib/components/enc-base64.js',
+        './bower_components/react/react-with-addons.js',
+        './bower_components/react/react-dom.js',
+        './bower_components/marked/marked.min.js',
+        './bower_components/flexboxgrid/css/flexboxgrid.css',
+        './bower_components/font-awesome/css/font-awesome.min.css',
+        
+        './react/js/node-bundle.js',
+        './react/js/Utils.js',
+        './react/js/ConnectionHelper.js',
+        './react/js/CryptoHelper.js',
+        './react/js/Client.js',
+
+        // default
+        // './node_modules/**',
         './helpers/**',
         './**/*.html',
         './**/*.+(jpg|png|svg)'
@@ -31,15 +59,15 @@ var paths = {
 // -------------------------------------
 
 gulp.task('clean', function () {
-    return destDir.dirAsync('.', { empty: true });
+    return destDir.dirAsync('.', {empty: true});
 });
 
 
 var copyTask = function () {
     return projectDir.copyAsync('app', destDir.path(), {
-            overwrite: true,
-            matching: paths.copyFromAppDir
-        });
+        overwrite: true,
+        matching: paths.copyFromAppDir
+    });
 };
 gulp.task('copy', ['clean'], copyTask);
 gulp.task('copy-watch', copyTask);
@@ -47,9 +75,9 @@ gulp.task('copy-watch', copyTask);
 
 var bundleApplication = function () {
     return Q.all([
-            bundle(srcDir.path('background.js'), destDir.path('background.js')),
-            bundle(srcDir.path('app.js'), destDir.path('app.js')),
-        ]);
+        bundle(srcDir.path('background.js'), destDir.path('background.js')),
+        bundle(srcDir.path('app.js'), destDir.path('app.js')),
+    ]);
 };
 
 var bundleSpecs = function () {
@@ -102,7 +130,7 @@ gulp.task('watch', function () {
     watch('app/**/*.js', batch(function (events, done) {
         gulp.start('bundle-watch', done);
     }));
-    watch(paths.copyFromAppDir, { cwd: 'app' }, batch(function (events, done) {
+    watch(paths.copyFromAppDir, {cwd: 'app'}, batch(function (events, done) {
         gulp.start('copy-watch', done);
     }));
     watch('app/**/*.less', batch(function (events, done) {
