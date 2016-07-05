@@ -1,3 +1,8 @@
+// require('./react/src/js/Utils.js');
+// require('./react/src/js/CryptoHelper.js');
+// require('./react/src/js/ConnectionHelper.js');
+// require('./react/src/js/Client.js');
+
 /** === react stuffs === */
 import React from 'react';
 import ReactDOM  from 'react-dom';
@@ -19,7 +24,6 @@ info('Mounted react succesfully');
 import os from 'os'; // native node.js module
 import {remote} from 'electron'; // native electron module
 import jetpack from 'fs-jetpack'; // module loaded from npm
-import {greet} from './hello_world/hello_world'; // code authored by you in this project
 import env from './env';
 
 console.log('Loaded environment variables:', env);
