@@ -1,10 +1,10 @@
 {
-  "name": "electron-boilerplate",
-  "productName": "Electron Boilerplate",
+  "name": "node-chat-client",
+  "productName": "Node Chat Client",
   "description": "A end-to-end chat written in electron, react and socket.io/nodejs",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Gregory Goijaerts",
-  "copyright": "© 2016, your company here",
+  "copyright": "© 2016, Crecket",
   "devDependencies": {
     "asar": "^0.11.0",
     "babel-preset-es2015-rollup": "^1.1.1",

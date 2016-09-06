@@ -7,7 +7,7 @@
 import React from 'react';
 import ReactDOM  from 'react-dom';
 import injectTapEventPlugin  from 'react-tap-event-plugin';
-import Main from './react/src/app/Main.jsx';
+import Main from './react/app/Main.jsx';
 
 // injection, required for materialze tap events
 injectTapEventPlugin();
