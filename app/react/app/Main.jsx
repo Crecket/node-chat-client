@@ -30,6 +30,9 @@ class Main extends React.Component {
             // server connection status
             connected: false,
 
+            // the location to which we'll connect
+            socketServer: 'https://localhost:8888',
+
             // client public and private keys
             publicKey: "",
             privateKey: "",
@@ -81,6 +84,14 @@ class Main extends React.Component {
             fn.refreshEncryptionKeys();
             fn.refreshSigningKeys();
         }, 150);
+
+        var storedServer = localStorage.getItem('socketServer');
+        if (!storedServer) {
+            storedServer = 'https://localhost:8888';
+        }
+
+        // update it in the client
+        this.setSocketServer(storedServer);
 
         // set socket listeners
         socket.on('user_disconnect', fn._SocketUserDisconnect);
@@ -146,6 +157,16 @@ class Main extends React.Component {
             storageSet('main_theme', "CustomDark");
         }
     };
+
+    // change the target server location and store it in local storage
+    setSocketServer = (newUrl) => {
+        console.log('Set server URL to ' + newUrl);
+        this.setState({socketServer: newUrl});
+        localStorage.setItem('socketServer', newUrl);
+
+        socket = io.connect(newUrl, {secure: true});
+        SessionHelper.setSocket(socket);
+    }
 
     // set a new key set for the encryption/decryption keys
     refreshEncryptionKeys = () => {

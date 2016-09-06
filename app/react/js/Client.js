@@ -1,6 +1,6 @@
 // Create socket connection
 // var socket = io.connect('https://' + window.location.host, {secure: true});
-var socket = io.connect('https://localhost:8888', {secure: true});
+var socket;
 
 // console shortcuts
 var warn = console.warn.bind(window.console),

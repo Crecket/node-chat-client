@@ -1,5 +1,12 @@
-function ConnectionHelper(socket, CryptoHelper) {
+function ConnectionHelper(inputSocket, CryptoHelper) {
     var fn = this;
+
+    // the socket connection
+    var socket = inputSocket;
+    // change connection
+    this.setSocket = function (newSocket) {
+        socket = newSocket;
+    };
 
     // current username
     var username = false;
