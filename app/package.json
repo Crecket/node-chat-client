@@ -1,10 +1,12 @@
 {
-  "name": "node-chat-client",
-  "productName": "Node Chat Client",
-  "description": "A end-to-end chat written in electron, react and socket.io/nodejs",
-  "version": "1.0.0",
-  "author": "Gregory Goijaerts",
-  "copyright": "© 2016, Crecket",
+  "name": "electron-boilerplate",
+  "productName": "Electron Boilerplate",
+  "description": "Starter for your Electron application",
+  "version": "0.0.0",
+  "author": "Mr. Gumby <mr.gumby@example.com>",
+  "copyright": "© 2016, Gumby inc.",
+  "homepage": "http://example.com",
+  "license": "MIT",
   "main": "background.js",
   "dependencies": {
     "babel-core": "^6.9.0",
@@ -23,21 +25,7 @@
     "react-flexbox-grid": "^0.9.6",
     "react-tap-event-plugin": "^1.0.0",
     "socket.io": "^1.4.5",
+    "socket.io-client": "^1.4.8",
     "socketio-jwt": "^4.3.4"
-  },
-  "scripts": {
-    "dev": "webpack -d --watch --progress --colors ",
-    "build": "webpack -p --progress --colors "
-  },
-  "packageNameTemplate": "{{name}}-v{{version}}-{{platform}}-{{arch}}",
-  "osx": {
-    "build": "1",
-    "identifier": "com.example.electron-boilerplate",
-    "LSApplicationCategoryType": "public.app-category.productivity",
-    "//codeSignIdentitiy": {
-      "dmg": "Developer ID Application: Company Name (APPIDENTITY)",
-      "MAS": "3rd Party Mac Developer Application: Company Name (APPIDENTITY)",
-      "MASInstaller": "3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-    }
   }
 }
