@@ -1,10 +1,9 @@
 import React  from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 
 import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton/index';
+import IconMenu from 'material-ui/IconMenu/index';
+import MenuItem from 'material-ui/MenuItem/index';
 import MessageIcon from 'material-ui/svg-icons/communication/message';
 import ColorLensIcon from 'material-ui/svg-icons/image/color-lens';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
@@ -23,18 +22,11 @@ class MainAppbar extends React.Component {
     };
 
     render() {
-        // main app bar at the top of the screen
-        var rightButton = <IconButton onClick={this.props.setTheme}><ColorLensIcon /></IconButton>;
+        var logoutOption;
 
-        // if user is logged in, show a menu instead of single button
+        // if user is logged in, show logout
         if (this.props.loggedin) {
-            rightButton = <IconMenu
-                iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-                targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
-                <MenuItem onClick={this.props.logoutCallback} primaryText="Logout"/>
-                <MenuItem onClick={this.props.setTheme} primaryText="Change Theme"/>
-            </IconMenu>;
+            logoutOption = <MenuItem onClick={this.props.logoutCallback} primaryText="Logout"/>;
         }
 
         return (
@@ -45,7 +37,14 @@ class MainAppbar extends React.Component {
                             style={styles.appbar}
                             title="NodeJS End-To-End"
                             iconElementLeft={<IconButton><MessageIcon /></IconButton>}
-                            iconElementRight={rightButton}
+                            iconElementRight={<IconMenu
+                                iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                                anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
+                                {logoutOption}
+                                <MenuItem onClick={this.props.openSettingsModal} primaryText="Settings"/>
+                                <MenuItem onClick={this.props.setTheme} primaryText="Change Theme"/>
+                            </IconMenu>}
                         />}
                     </div>
                 </div>
@@ -59,4 +58,4 @@ class MainAppbar extends React.Component {
 MainAppbar.childContextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
 };
-export default muiThemeable()(MainAppbar);
+export default (MainAppbar);

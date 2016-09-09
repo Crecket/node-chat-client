@@ -1,8 +1,7 @@
 import React from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 import User from './User.jsx';
 
-import {List, ListItem} from 'material-ui/List';
+import List from 'material-ui/List/List';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 import LockOutline from 'material-ui/svg-icons/action/lock-outline';
@@ -54,4 +53,4 @@ class UserList extends React.Component {
 UserList.childContextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
 };
-export default muiThemeable()(UserList);
+export default (UserList);

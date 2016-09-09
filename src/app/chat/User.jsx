@@ -1,7 +1,6 @@
 import React  from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 
-import {List, ListItem} from 'material-ui/List';
+import ListItem from 'material-ui/List/ListItem';
 
 class User extends React.Component {
     constructor(props, context) {
@@ -32,4 +31,4 @@ class User extends React.Component {
 User.childContextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
 };
-export default muiThemeable()(User);
+export default (User);

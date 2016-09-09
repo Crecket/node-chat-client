@@ -16,4 +16,3 @@ If you're running a different OS you can still create a development application
 
 ## Commands list
 - `npm run release` : Attempt to create a release, go [here](https://github.com/szwacz/electron-boilerplate) for more information and requirements
-- `npm run build` : Build the application 

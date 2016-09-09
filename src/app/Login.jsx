@@ -1,11 +1,9 @@
 import React  from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 import Checkbox from 'material-ui/Checkbox';
-
 
 const styles = {
     inputs: {
@@ -144,4 +142,4 @@ class Login extends React.Component {
 Login.childContextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
 };
-export default muiThemeable()(Login);
+export default Login;

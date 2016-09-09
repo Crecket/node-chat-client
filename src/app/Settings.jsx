@@ -1,5 +1,4 @@
 import React  from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 import RsaKey from './components/RsaKey.jsx';
 import Md5Label from './components/Md5Label.jsx';
 
@@ -120,6 +119,7 @@ class Settings extends React.Component {
                                                             style={{color: this.props.muiTheme.palette.textColor}}>
                                                             Public verification key
                                                         </Subheader>
+
                                                         <RsaKey nameTag="publicVerificationKey"
                                                                 rsaKey={this.props.verificationKey}/>
                                                         <Md5Label nameTag="publicVerificationKeyMd5Label"
@@ -157,4 +157,4 @@ class Settings extends React.Component {
 Settings.contextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
 };
-export default muiThemeable()(Settings);
+export default (Settings);

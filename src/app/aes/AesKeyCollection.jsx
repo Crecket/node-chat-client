@@ -1,5 +1,4 @@
 import React  from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 import RsaKey from '../components/RsaKey.jsx';
 import AesKey from '../components/AesKey.jsx';
 import Md5Label from '../components/Md5Label.jsx';
@@ -93,4 +92,4 @@ class AesKeyCollection extends React.Component {
 AesKeyCollection.childContextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
 };
-export default muiThemeable()(AesKeyCollection);
+export default (AesKeyCollection);

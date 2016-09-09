@@ -1,5 +1,4 @@
 import React  from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 import UserList from './UserList.jsx';
 import NewMessageForm from './NewMessageForm.jsx';
 import MessageList from './MessageList.jsx';

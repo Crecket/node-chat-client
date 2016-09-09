@@ -1,5 +1,4 @@
 import React  from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 import AesKeyCollection from './aes/AesKeyCollection.jsx';
 
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
@@ -54,4 +53,4 @@ class AesKeys extends React.Component {
 AesKeys.childContextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
 };
-export default muiThemeable()(AesKeys);
+export default (AesKeys);

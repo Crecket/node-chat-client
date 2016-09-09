@@ -1,5 +1,4 @@
 import React  from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 
 import TextField from 'material-ui/TextField';
 
@@ -36,4 +35,4 @@ class RsaKey extends React.Component {
 RsaKey.childContextTypes = {
     muiTheme: React.PropTypes.object.isRequired,
 };
-export default muiThemeable()(RsaKey);
+export default (RsaKey);

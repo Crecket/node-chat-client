@@ -1,5 +1,4 @@
 import React  from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
 import Message from './Message.jsx';
 
 import {List} from 'material-ui/List';

@@ -1,5 +1,5 @@
 import React from 'react';
-import muiThemeable from 'material-ui/styles/muiThemeable';
+
 import Chat from './chat/Chat.jsx';
 import Login from './Login.jsx';
 import LoadScreen from './LoadScreen.jsx';
@@ -9,6 +9,7 @@ import Settings from './Settings.jsx';
 
 // Themes
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CustomDark from './themes/CustomDark';
 import CustomLight from './themes/CustomLight';
 // theme list so we can access them more easily
@@ -21,6 +22,7 @@ const ThemesList = {
 import {Container} from 'material-ui';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import TextField from 'material-ui/TextField/index';
 
 class Main extends React.Component {
 
@@ -50,6 +52,7 @@ class Main extends React.Component {
             userKeys: {},
 
             // default modal state
+            modalSettingsOpen: false,
             modalOpen: false,
             modalMessage: "",
             modalTitle: "",
@@ -85,6 +88,7 @@ class Main extends React.Component {
             fn.refreshSigningKeys();
         }, 150);
 
+        // load socketserver stored in localstorage
         var storedServer = localStorage.getItem('socketServer');
         if (!storedServer) {
             storedServer = 'https://localhost:8888';
@@ -205,6 +209,28 @@ class Main extends React.Component {
     // close the general modal
     closeModal = () => {
         this.setState({modalOpen: false});
+    };
+
+    // open the settings modal
+    openSettingsModal = () => {
+        this.setState({modalSettingsOpen: true});
+    };
+
+    // close the settings modal
+    closeSettingsModal = () => {
+        this.setState({modalSettingsOpen: false});
+    };
+    // input field change
+    handleSettingsModal = (event) => {
+        console.log(event.target.value);
+        this.setState({
+            socketServer: event.target.value,
+        });
+    };
+    // update the socket connection with the current state
+    confirmSettingsModal = () => {
+        this.setState({modalSettingsOpen: false});
+        this.setSocketServer(this.state.socketServer);
     };
 
     // update the stored aes keys
@@ -425,28 +451,47 @@ class Main extends React.Component {
         ];
 
         return (
-            <div className={"wrap " + this.state.muiTheme}
-                 style={{background: ThemesList[this.state.muiTheme].bodyBackground}}>
-                <div className="container-fluid">
-                    <Dialog
-                        title={this.state.modalTitle}
-                        actions={modalActions}
-                        modal={false}
-                        open={this.state.modalOpen}
-                        onRequestClose={this.closeModal}
-                    >
-                        {this.state.modalMessage}
-                    </Dialog>
+            <MuiThemeProvider muiTheme={ThemesList[this.state.muiTheme]}>
+                <div className={"wrap " + this.state.muiTheme}
+                     style={{background: ThemesList[this.state.muiTheme].bodyBackground}}>
+                    <div className="container-fluid">
+                        <Dialog
+                            title={this.state.modalTitle}
+                            actions={modalActions}
+                            modal={false}
+                            open={this.state.modalOpen}
+                            onRequestClose={this.closeModal}
+                        >
+                            {this.state.modalMessage}
+                        </Dialog>
 
-                    <MainAppbar
-                        loggedin={this.state.loggedin}
-                        setTheme={this.setTheme}
-                        logoutCallback={this.logout}
-                    />
+                        <Dialog
+                            title="Client settings"
+                            actions={<FlatButton
+                                label="Ok"
+                                primary={true}
+                                keyboardFocused={true}
+                                onTouchTap={this.confirmSettingsModal}
+                            />}
+                            modal={false}
+                            open={this.state.modalSettingsOpen}
+                            onRequestClose={this.closeSettingsModal}
+                        >
+                            <p> The server to connect to, https is required.</p>
+                            <TextField id="optionsModalInput" value={this.state.socketServer} onChange={this.handleSettingsModal}/>
+                        </Dialog>
 
-                    {MainComponent}
+                        <MainAppbar
+                            loggedin={this.state.loggedin}
+                            setTheme={this.setTheme}
+                            openSettingsModal={this.openSettingsModal}
+                            logoutCallback={this.logout}
+                        />
+
+                        {MainComponent}
+                    </div>
                 </div>
-            </div>
+            </MuiThemeProvider>
         )
     };
 }
